@@ -5,7 +5,7 @@ static void set_cell(char *board_cell, char set_ch)
     (*board_cell) = set_ch;
 }
 
-static char get_piece(int player)
+static char get_piece(const int player)
 {
     char piece;
 
@@ -32,7 +32,7 @@ void init_board(char (*board)[(WIDTH + 1)])
     }
 }
 
-bool put_piece(char (*board)[(WIDTH + 1)], int column, int player)
+bool put_piece(char (*board)[(WIDTH + 1)], const int column, const int player)
 {
     for (int h = (HEIGHT - 1); h >= 0; h--)
     {

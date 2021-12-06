@@ -18,7 +18,7 @@
 
 /* board.c */
 void init_board(char (*board)[(WIDTH + 1)]);
-bool put_piece(char (*board)[(WIDTH + 1)], int column, int player);
+bool put_piece(char (*board)[(WIDTH + 1)], const int column, const int player);
 void print_board(const char (*board)[(WIDTH + 1)]);
 
 #endif
