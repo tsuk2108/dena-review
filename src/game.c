@@ -51,7 +51,7 @@ static int player_turn(char (*board)[(WIDTH + 1)], const int player)
     return (next_player(player));
 }
 
-void print_info(const int player_id)
+static void print_info(const int player_id)
 {
     printf("[player%d turn]\n", player_id);
     for (int i = 1; i <= WIDTH; i++)
@@ -59,7 +59,7 @@ void print_info(const int player_id)
     printf("\n");
 }
 
-void print_start_turn(const char (*board)[(WIDTH + 1)], const int player_id)
+static void print_start_turn(const char (*board)[(WIDTH + 1)], const int player_id)
 {
     print_info(player_id);
     print_board(board);
