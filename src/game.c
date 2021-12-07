@@ -5,10 +5,11 @@ static char *input_line()
     char *line = NULL;
     size_t n = 0;
 
+    printf("Select a column[%d ~ %d]:", 1, WIDTH);
     while (getline(&line, &n, stdin) == -1)
     {
-        printf("%s:", line);
         free(line);
+        printf("Select a column[%d ~ %d]:", 1, WIDTH);
     }
     return (line);
 }
@@ -50,6 +51,20 @@ static int player_turn(char (*board)[(WIDTH + 1)], const int player)
     return (next_player(player));
 }
 
+void print_info(const int player_id)
+{
+    printf("[player%d turn]\n", player_id);
+    for (int i = 1; i <= WIDTH; i++)
+        printf("%d", i);
+    printf("\n");
+}
+
+void print_start_turn(const char (*board)[(WIDTH + 1)], const int player_id)
+{
+    print_info(player_id);
+    print_board(board);
+}
+
 int game_loop(char (*board)[(WIDTH + 1)], const bool is_player_1_first)
 {
     int turn;
@@ -63,8 +78,7 @@ int game_loop(char (*board)[(WIDTH + 1)], const bool is_player_1_first)
     while (1)
     {
         system("cls");
-        printf("[player%d turn]\n", id);
-        print_board(board);
+        print_start_turn(board, id);
         if ((turn % 2) == is_player_1_first)
             id = player_turn(board, PLAYER_1);
         else
