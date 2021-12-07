@@ -5,14 +5,7 @@ int main(void)
     char board[HEIGHT][WIDTH + 1];
 
     init_board(board);
+    game_loop(board, true);
 
-    // test
-    while (1)
-    {
-        print_board(board);
-        int input;
-        scanf("%d", &input);
-        put_piece(board, (input - 1), PLAYER_1);
-    }
     return (0);
 }

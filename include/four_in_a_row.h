@@ -3,6 +3,10 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define ERROR -1
 
 #define WIDTH 7
 #define HEIGHT 6
@@ -20,5 +24,8 @@
 void init_board(char (*board)[(WIDTH + 1)]);
 bool put_piece(char (*board)[(WIDTH + 1)], const int column, const int player);
 void print_board(const char (*board)[(WIDTH + 1)]);
+
+/* game.c */
+int game_loop(char (*board)[(WIDTH + 1)], const bool is_player_1_first);
 
 #endif
