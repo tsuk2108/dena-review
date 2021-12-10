@@ -1,6 +1,6 @@
 #include "four_in_a_row.h"
 
-static char *input_line()
+static char *input_line(void)
 {
     char *line = NULL;
     size_t n = 0;
@@ -52,6 +52,17 @@ static int player_turn(char (*board)[(WIDTH + 1)], const int player)
     return (column);
 }
 
+static void update_display(void)
+{
+#ifdef _WIN64
+    system("cls");
+#elif _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
 static void print_info(const int player_id)
 {
     printf("[player%d turn]\n", player_id);
@@ -62,6 +73,7 @@ static void print_info(const int player_id)
 
 static void print_start_turn(const char (*board)[(WIDTH + 1)], const int player_id)
 {
+    update_display();
     print_info(player_id);
     print_board(board);
 }
@@ -86,8 +98,9 @@ static bool is_finish(const char (*board)[(WIDTH + 1)], const int column)
     return (false);
 }
 
-void print_end_game(const char (*board)[(WIDTH + 1)], const int winner)
+static void print_end_game(const char (*board)[(WIDTH + 1)], const int winner)
 {
+    update_display();
     print_board(board);
     printf("[player%d win!]\n", winner);
 }
@@ -105,7 +118,6 @@ void game_loop(char (*board)[(WIDTH + 1)], const bool is_player_1_first)
         id = PLAYER_2;
     while (1)
     {
-        system("cls");
         print_start_turn(board, id);
         if ((turn % 2) == is_player_1_first)
             put_column = player_turn(board, PLAYER_1);
