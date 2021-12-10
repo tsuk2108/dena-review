@@ -94,7 +94,6 @@ bool check_horizontal(const char (*board)[(WIDTH + 1)], const int column, const 
 {
     int piece;
     int count;
-    int w;
 
     count = 1;
     piece = board[row][column];

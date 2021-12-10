@@ -81,6 +81,8 @@ static void print_start_turn(const char (*board)[(WIDTH + 1)], const int player_
 static bool is_finish(const char (*board)[(WIDTH + 1)], const int column)
 {
     int row;
+
+    row = 0;
     for (int h = 0; h < HEIGHT; h++)
     {
         if (board[h][column] != EMPTY)
