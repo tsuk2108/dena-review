@@ -10,6 +10,7 @@
 
 #define WIDTH 7
 #define HEIGHT 6
+#define GOAL 4
 
 #define PLAYER_1 1
 #define PLAYER_2 2
@@ -25,7 +26,12 @@ void init_board(char (*board)[(WIDTH + 1)]);
 bool put_piece(char (*board)[(WIDTH + 1)], const int column, const int player);
 void print_board(const char (*board)[(WIDTH + 1)]);
 
+/* check_board.c */
+bool check_diagonal(const char (*board)[(WIDTH + 1)], const int column, const int row);
+bool check_vertical(const char (*board)[(WIDTH + 1)], const int column, const int row);
+bool check_horizontal(const char (*board)[(WIDTH + 1)], const int column, const int row);
+
 /* game.c */
-int game_loop(char (*board)[(WIDTH + 1)], const bool is_player_1_first);
+void game_loop(char (*board)[(WIDTH + 1)], const bool is_player_1_first);
 
 #endif
