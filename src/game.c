@@ -129,4 +129,8 @@ void game_loop(char (*board)[(WIDTH + 1)], const bool is_player_1_first)
         turn += 1;
     }
     print_end_game(board, id);
+
+    char ch;
+    printf("Press enter...");
+    scanf("%c", &ch);
 }
