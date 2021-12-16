@@ -11,6 +11,5 @@ gcc -Iinclude src/*.c -o program; ./program
 ```
 
 # 開発環境
-言語:C  
 OS：Windows10  
 コンパイラ:gcc 8.2.0  
